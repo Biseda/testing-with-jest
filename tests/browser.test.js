@@ -32,3 +32,14 @@ describe('Clicking "Pusha till stacken"', () => {
 		await alert.accept();
 	});
 });
+
+
+test('Pushing an item onto the stack should update the display', async () => {
+    const pushButton = await driver.findElement(By.id('push'));
+    await pushButton.click();
+    const inputAlert = await driver.switchTo().alert();
+    await inputAlert.sendKeys('Apple');
+    await inputAlert.accept();
+    const topOfStack = await driver.findElement(By.id('top_of_stack')).getText();
+    expect(topOfStack).toEqual('Banana');
+});
