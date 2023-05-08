@@ -41,5 +41,5 @@ test('Pushing an item onto the stack should update the display', async () => {
     await inputAlert.sendKeys('Apple');
     await inputAlert.accept();
     const topOfStack = await driver.findElement(By.id('top_of_stack')).getText();
-    expect(topOfStack).toEqual('Banana');
+    expect(topOfStack).toEqual('apple');
 });
